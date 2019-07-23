@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="#000000">
+<style>
+body {
+background-color:black;
+color:deepskyblue;
+}
+.button {
+position:fixed;bottom:0px;right:0px;
+background-color:deepskyblue;
+border:none;
+color:black;
+padding:15px 32px;
+text-align:center;
+text-decoration:none;
+display:inline-block;
+font-size:32px;
+margin:4px 2px;
+cursor:pointer;
+}
+.button:hover {
+color:white;
+}
+</style>
+<div id=changelog>
+<center><br>
+<font size ="8" color="white">CHANGELOG:</font></p>
+<p>
+<font size ="6">X-PROJECT 1.5.6</font>
+<br><font size ="3" color="grey">(PLAYSTATION 4 FIRMWARE: 5.05-5.07)</font>
+</p>
+</center>
+<p>
+<font size ="4" color="white">Customization:</font>
+<br><font size ="4" color="grey">[+] XMB Tinting: New STYLE column featuring 16.8 million colour picker, randomised or revert to default options.<br>Buttons and text also match this tint in all pages of X-Project.</font>
+<br><font size ="4" color="grey">[+] Avatars: Place your own 210x210px PNG in the root folder (INDEX.HTML location). A fall back USER.PNG is provided if none is found.<br>(When X-Project is loaded you can click on a colour within your avatar to colour your XMB to match).</font>
+<br><font size ="4" color="grey">[+] Name: Enter your name in the infomation panel to be greeted throughout.</font>
+<br><font size ="4" color="grey">[+] IP address: Enter the IP address of your console for quick reference. When using our HTTP server to host, it will resolve your IP automatically.</font>
+<br><font size ="4" color="grey">[+] Icons: Use your own 60x60px PNG in the ICONS folder and make relevant edits in INDEX.JS.<br>(See INDEX.JS for working examples).</font>
+</p><p>
+<font size ="4" color="white">New Features:</font>
+<br><font size ="4" color="grey">[+] DNS server method: enter the DNS provided and access X-Project in USERGUIDE or BROWSER (x.project).</font>
+<br><font size ="4" color="grey">[+] Spoofing payload: Choose your own custom version number 0.00-9.99.</font>
+<br><font size ="4" color="grey">[+] Fan Payload: Set your own fan temperature 40° min to 79° max.</font>
+<br><font size ="4" color="grey">[+] Kernel time: Use any of the REACTPSPLUS payloads to set the kernel time on your console, and have it display alongside the system time. <br>(WARNING: Deleting cache removes this data)</font>
+<br><font size ="4" color="grey">[+] Automatic Caching: If X-Project is not detected: it caches. It's highly recommended for stability.</font>
+<br><font size ="4" color="grey">[+] Automatic Update Caching: If X-Project detects an updated offlinexmb.cache: it updated automatically.</font>
+<br><font size ="4" color="grey">[+] DETAILS section in the ABOUT column for contacting the X-Project Team and making requests and suggestions.</font>
+</p><p>
+<font size ="4" color="white">Updated:</font>
+<br><font size ="4" color="grey">[+] Revised payload method to allow BIN files instead of HTML conversions: Reducing total size and minimising time it takes to cache.</font>
+<br><font size ="4" color="grey">[+] Currently 85 payloads in total, super simple to update quickly.</font>
+<br><font size ="4" color="grey">[+] Revised information panel now also shows/hides avatar.</font>
+<br><font size ="4" color="grey">[+] Revised quick button display and updated combinations to prevent accidental presses.</font>
+<br><font size ="4" color="grey">[+] Improved spoof detection to display actual firmware and spoofed version.</font>
+<br><font size ="4" color="grey">[+] Updated HEN payloads (includes 2.1.1).</font>
+<br><font size ="4" color="grey">[+] Updated QUICK payloads (You can customise these in INDEX.JS & INDEX.HTML</font>
+<br><font size ="4" color="grey">[+] Added internal LINUX payload.</font>
+<br><font size ="4" color="grey">[+] Added PUP decryption payload.</font>
+<br><font size ="4" color="grey">[+] Revised REACTPSPLUS input method.</font>
+<br><font size ="4" color="grey">[+] Updated Player payload to match XMB tint and code improvements.</font>
+<br><font size ="4" color="grey">[+] Improved MAKECACHE.BAT to include time stamp.</font>
+<br><font size ="4" color="grey">[+] Updated credits to include everyone who has had any part in X-Project, no matter how small.</font>
+</p><p>
+<font size ="4" color="white">Removed:</font>
+<br><font size ="4" color="grey">[-] Removed erroneous or outdated payloads that serve no purpose.</font>
+<br><font size ="4" color="grey">[-] Removed erroneous information from information panel.</font>
+<br><font size ="4" color="grey">[-] Removed autoscrolling for caching suggestion.</font>
+</p><p>
+<font size ="4" color="white">Other tweaks:</font>
+<br><font size ="4" color="grey">[*] Improved D-Pad navigation methods.</font>
+<br><font size ="4" color="grey">[*] Improved text alignment and spacing.</font>
+<br><font size ="4" color="grey">[*] Improved mouse pointer interaction issues.</font>
+<br><font size ="4" color="grey">[*] Partially rewritten media player functionality (Experimental).</font>
+</p><p>
+<font size ="4" color="white">Known Issues:</font>
+<br><font size ="4" color="grey">[#] OOM issues will never be fully eliminated.</font>
+<br><font size ="4" color="grey">[#] Clicking on an avatars transparent backgrounds causes XMB to turn black.</font>
+<br><font size ="4" color="grey">[#] ★DEBUG ★PAYLOAD is empty by default. Add your own.</font>
+<br><font size ="4" color="grey">[#] Media player sometimes fails to load media.</font>
+<p>
+<center>
+<a href="javascript:back2Menu();" class="button">BACK TO MENU</a>
+</center>
+</div>
+<script>
+setTint = localStorage.xmbcolor;
+document.getElementById("changelog").style.color = setTint;
+document.getElementsByClassName("button")[0].style.backgroundColor = setTint;
+function back2Menu (){
+parent.location.reload(true); 
+}
+</script>
+</body>
+</html>

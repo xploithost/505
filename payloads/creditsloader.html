@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet prefetch" href="exploit.css">
+<script>
+parent.document.getElementById("ScrOverlay").style.display = "block";
+</script>
+</head>
+<body>
+<script>
+parent.document.getElementById("ScrOverlay").innerHTML='<object type="text/html" data="payloads/credits.html" style="width:100%; height:100%;"></object>';
+sessionStorage.setItem("Credits", 1);
+</script>
+</body>
+</html>

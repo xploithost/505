@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>Random Menu Colour Changer</title>
+<link rel="stylesheet prefetch" href="exploit.css">
+</head>
+<body>
+<div id="info" class="info">SELECT A PAYLOAD <span id="user1" style="text-transform:uppercase"></span></div>
+<script>
+document.getElementById('user1').innerHTML = localStorage.getItem("username");
+var x = parent.document.getElementById("content"); var y = (x.contentWindow || x.contentDocument);if (y.document)y = y.document; 
+randcol = "#" + Math.floor((1 + Math.random()) * 4096).toString(16).substr(1);
+localStorage.xmbcolor = randcol;
+parent.ColorChanger();
+</script>
+</body>
+</html>

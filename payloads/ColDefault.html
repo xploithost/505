@@ -1,0 +1,14 @@
+<html>
+<head>
+<title>Revert To Default Menu Colour</title>
+<link rel="stylesheet prefetch" href="exploit.css">
+</head>
+<body>
+<div id="info" class="info" style="color:deepskyblue">SELECT A PAYLOAD <span id="user1" style="text-transform:uppercase"></span></div>
+<script>
+document.getElementById('user1').innerHTML = localStorage.getItem("username");
+localStorage.setItem('xmbcolor', '')
+parent.ColorChanger();	
+</script>
+</body>
+</html>

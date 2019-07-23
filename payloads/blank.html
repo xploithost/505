@@ -1,0 +1,26 @@
+<html>
+<head>
+<link rel="stylesheet prefetch" href="exploit.css">
+</head>
+<body>
+<div id="info" class="info">SELECT A PAYLOAD <span id="user1" style="text-transform:uppercase"></span></div>
+<script>
+if (localStorage.getItem("username") === "user"){
+    localStorage.removeItem("username");
+} else {document.getElementById('user1').innerHTML = localStorage.getItem("username");
+}
+
+if (window.parent.cachedxp === "false") {
+} else if (localStorage.username != null && sessionStorage.Credits == null && sessionStorage.Details == null && sessionStorage.Stats == null && sessionStorage.Changelog == null){
+    document.getElementById('user1').innerHTML = localStorage.getItem("username");
+    window.parent.document.getElementById('Ttitle').innerHTML='WELCOME BACK:';
+    window.parent.document.getElementById('Tsubtitle').innerHTML=localStorage.getItem("username");
+    window.parent.pop();
+} else if (localStorage.username == null && sessionStorage.Credits == null && sessionStorage.Details == null && sessionStorage.Stats == null && sessionStorage.Changelog == null){
+    window.parent.document.getElementById('Ttitle').innerHTML='X-PROJECT TIP:';
+    window.parent.document.getElementById('Tsubtitle').innerHTML='Enter a Username';
+    window.parent.pop();
+}
+</script>
+</body>
+</html>

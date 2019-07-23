@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="#000000">
+<style>
+body {
+background-color:black;
+color:deepskyblue;
+}
+.button {
+position:fixed;bottom:0px;right:0px;
+background-color:deepskyblue;
+border:none;
+color:black;
+padding:15px 32px;
+text-align:center;
+text-decoration:none;
+display:inline-block;
+font-size:32px;
+margin:4px 2px;
+cursor:pointer;
+}
+.button:hover {
+color:white;
+}
+</style>
+<div id=details>
+<center><br>
+<font size ="8" color="white">X-PROJECT & X-PROJECT ESP CREATED BY:</font></p>
+<p><font size ="6">DEFAULTDNB (AKA KIIWII) & LEEFUL</font></p>
+<font size ="8" color="white">Discord:</font>
+<p><font size ="5" color="grey">DEFAULTDNB#6513 / LEEFUL#0049</font></p>
+<font size ="8" color="white">Twitter:</font>
+<p><font size ="5" color="grey">@DefaultDNB / @Leeful74</font></p>
+<font size ="8" color="white">GBATemp:</font>
+<p><font size ="5" color="grey">KiiWii / Leeful</font></p>
+<font size ="8" color="white">Psxhax:</font>
+<p><font size ="5" color="grey">DefaultDNB / Leeful</font></p>
+<a href="javascript:back2Menu();" class="button">BACK TO MENU</a>
+</center>
+</div>
+<script>
+setTint = localStorage.xmbcolor;
+document.getElementById("details").style.color = setTint;
+document.getElementsByClassName("button")[0].style.backgroundColor = setTint;
+var i = setInterval(function() {
+    window.scrollBy(0, 1);
+	}, 20);
+function back2Menu (){
+parent.location.reload(true); 
+}
+</script>
+</body>
+</html>
