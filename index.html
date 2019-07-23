@@ -1,0 +1,294 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" http-equiv="expires" content="31536000"> <!-- one year -->
+  <title>X-PROJECT</title> 
+  <link rel="stylesheet" href="css/anim.css">
+  <link rel="stylesheet" href="css/icons.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+  <script>try{var request=new XMLHttpRequest();ipz=location.host;request.open('GET','http://'+ipz+':8000',true);request.onload=function(){var data=JSON.parse(this.response);if(request.status>=200&&request.status<400){localStorage.setItem("userip",data.ipt+":1337");document.getElementById("myip").textContent=data.ipt+":1337";}};request.send();}catch(error){document.getElementById("myip").textContent='0.0.0.0';console.log('an error occured whilst trying to get the users local ip');console.log(error);}</script>
+</head>
+<body onload="Populate();">
+<div id="Tpopup" onclick="Tpopup.classList.remove('animation');">
+<div id="Ticon" ><img width="38" height="38" src="data:image/png;base64,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"></div>
+<div id="Ttitle" ></div>
+<div id="Tsubtitle"></div>
+<div id="Tbutton" onclick=""><img id="avaimage" src='avatar.png'  onerror='this.onerror = null; this.src="icons/user.png"' width="60px" height="60px" /></div>
+</div>
+<div class="topmask"></div>
+<div id="contents" class="contents"><iframe id="content" name="content" class="content" src="payloads/blank.html" onLoad="ColorIframe();"></iframe></div>
+<div class="rgbcontainer" id="rgbcontainer"><canvas id="rgbCanvas" class="rgbCanvas" width="865" height="90"></canvas></div>
+<h2 class="top" id="top" onclick="DebugMode()">PS4 v5.05 PAYLOAD HOST</h2>
+<h2 class="clock" id="clock">X-PROJECT LOADING..</h2>
+<h2 class="ktime" id="ktime"></h2>
+<div id="NavFix" tabindex="1" style="position:fixed;left:0;right:0;top:0;bottom:0;max-width:100%;max-height:100%;margin:auto;width:100px;height:100px;"></div>
+<div id="xmb-contain">
+  <div id="xmb">
+    <ul>
+      <li class="column" v-for="column,index in columns" v-bind:class="{active:column.active}" v-bind:style="{left:column.position.x+'px'}">
+        <div class="cell" v-bind:class="{active:column.active}" v-on:click="highlightCell(column.index,0)">
+		<i class="material-icons xmb-icon">{{column.icon}}<div :id="column.custom"></div></i>
+        <label>{{column.title}}</label>
+        </div>
+        <ul>
+          <li class="cell submenu" v-for="item,itemIndex in column.items" v-bind:class="{active:item.active}" v-bind:style="{top:item.position.y+'px'}" v-on:click="highlightCell(column.index,itemIndex)"> 
+          <a v-bind:href="item.href = item.expage" target="content">
+            <div class="selected">
+              <div class="material-icons">{{item.icon}}<div :id="item.custom"></div>{{item.icontxt}}</div>
+              <div class="titles">{{item.title}}{{column.txt1}}<div :id="item.button1"></div>{{column.txt2}}<div :id="item.button2"></div>{{column.txt3}}</div>
+			  <div class="desc">{{item.desc}}{{item.txt4}}<div :id="item.button3"></div>{{item.txt5}}<div :id="item.button4"></div>{{item.txt6}}{{item.txt4}}<div :id="item.button5"></div>{{item.txt5}}<div :id="item.button6"></div>{{item.txt7}}{{item.txt4}}<div :id="item.button7"></div>{{item.txt5}}<div :id="item.button8"></div>{{item.txt8}}{{item.txt9}}<div :id="item.button9"></div>{{item.txt10}}<div :id="item.button10"></div>{{item.txt11}}</div>
+			  <div class="subs">Version: {{item.version}}</div>
+            </div>
+          </a>
+		</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<script src="js/vue.js"></script>
+<script src="js/lodash.min.js"></script>
+<script src="js/zepto.min.js"></script>
+<script src="js/index.js"></script>
+<video id="trophy" width="0" height="0">
+<source src="trophy.mp4" type="video/mp4" preload>
+</video>
+<script>
+var xpver = "X-PROJECT 1.5.6";
+var payloadcount = ((document.getElementById('xmb-contain').getElementsByTagName('li').length)- 2); //-2 for debug and test payload icons
+//alert("Number of icons: "+document.getElementById('xmb-contain').getElementsByTagName('li').length+"\nNumber of cols: "+xmbVue.nColumns);	
+
+// Is It Cached? Check
+if (window.applicationCache.status == '0') {cachedxp = "false";} else {cachedxp = "true";}
+
+// Time and Date Code. 
+	// To set the correct Kernel Time add the following line to a payload:
+	// localStorage.KernEpochDiff = new Date().getTime() +- new Date(timetoset*1000 + 1325376000000);
+	// Replace 'timetoset' with the epoch value you want to set.
+if (localStorage.KernEpochDiff == null){localStorage.KernEpochDiff = 0;}
+function ShowTimeAndDate() {
+	var Kdate = new Date();
+	Kdate.setTime(Kdate.getTime() +- localStorage.KernEpochDiff);
+	document.getElementById('clock').innerHTML = Date().toString().slice(0,21);
+	document.getElementById('ktime').innerHTML = 'Kernel Time: ' + Kdate.toString().slice(0,21);
+}
+ShowTimeAndDate(); setInterval(ShowTimeAndDate,60*1000);
+
+// Auto-Update Cache Screen
+function DLProgress(e){
+	document.getElementById("ScrOverlay").style.display = "block";
+	Percent = (Math.round(e.loaded / e.total * 100));
+	document.getElementById('cacheUPDtxt').innerHTML = "NEW OFFLINE CACHE DETECTED<br>UPDATING " + Percent + "%";
+} 
+	window.applicationCache.addEventListener("progress", DLProgress, false);
+	window.applicationCache.onupdateready = function (e){window.location.reload();};
+	window.applicationCache.onerror = function (e) {document.getElementById('cacheUPDtxt').innerHTML = "ERROR UPDATING CACHE!!";};
+
+// Update chosen color to menu items
+function ColorChanger() {
+	colpick = localStorage.xmbcolor;
+    var x = document.getElementById("content"); var y = (x.contentWindow || x.contentDocument);if (y.document)y = y.document;
+    document.getElementById("Tpopup").style.borderColor = colpick;	
+	y.body.style.color = colpick;
+	var z = document.querySelectorAll(".material-icons, .titles"); 
+	var i; for (i = 0; i < z.length; i++) {z[i].style.color = colpick;}
+	keepCols = document.getElementById("xmb").getElementsByClassName("material-icons");
+	keepCols[0].style.color = "firebrick"; // quick icon
+	keepCols[payloadcount].style.color = "gold"; //debug icon
+	keepCols[payloadcount-12].style.color = "lime"; //cache icon
+}
+
+// Update chosen color to iframe content
+function ColorIframe() {
+	setTint = localStorage.xmbcolor;
+	var ifx = document.getElementById("content"); var ify = (ifx.contentWindow || ifx.contentDocument);if (ify.document)ify = ify.document; 
+	ify.body.style.color = setTint;
+	if (localStorage.xmbcolor == null){ify.body.className = "fallback";}
+	if (ify.getElementsByClassName("ib2")) {
+	ify.getElementsByClassName("loaderO")[0].style.border='3px solid '+setTint;
+	ify.getElementsByClassName("loaderO")[0].style.borderBottom='3px solid black';
+	}
+}	
+
+// Pick color from avatar image
+function AvatarColorPick(){
+    var canvasEl = document.getElementById('colorCanvas');
+    var canvasContext = canvasEl.getContext('2d');
+    var image = new Image(210, 210);
+    image.onload = () => canvasContext.drawImage(image, 0, 0, image.width, image.height); 
+	str = document.getElementById("avaimage").src;
+	if (str.includes("/icons/user.png")) {image.src = "./icons/user.png";} else {image.src = "./avatar.png";}
+	canvasEl.onclick = function(mouseEvent){
+	var imgData = canvasContext.getImageData(mouseEvent.offsetX, mouseEvent.offsetY, 1, 1);
+	var rgb = imgData.data;
+	localStorage.xmbcolor = "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")";
+	ColorChanger();
+    };
+}
+
+function Populate() {
+	ColorChanger();
+	AvatarColorPick();
+
+//Get or Set True Firmware Version	
+var UA = navigator.userAgent.substring(navigator.userAgent.indexOf("5.0 (") + 19, navigator.userAgent.indexOf(") Apple"));
+	if (localStorage.truefirm == null) {
+	if (UA == "5.05" || UA == "5.07") {localStorage.setItem("truefirm", Number(UA)); truefw = localStorage.truefirm;}
+	else {localStorage.setItem("truefirm", "spoofed");truefw = localStorage.truefirm;}
+	} else {truefw = localStorage.truefirm;}
+
+// Set items in INFO Pannel
+var txt = "";
+	txt += "HOST VER : " + "<span style='color:white;' onclick='hide()'>" + xpver + "</span>" + "<br><br>";
+	txt += "<div id=R1BUTTON></div>+ <div id=DLBUTTON></div>" + ": HEN v2.1.1 + VR" + "<br>";
+	txt += "<div id=R1BUTTON></div>+ <div id=DRBUTTON></div>" + ": FTP + FULL R/W" + "<br>";
+	txt += "<div id=R1BUTTON></div>+ <div id=DDBUTTON></div>" + ": FW SPOOFER" + "<br>";
+	txt += "<div id=R1BUTTON></div>+ <div id=L2BUTTON></div>" + ": REACTPSPLUS-MOD" + "<br><br>";
+	txt += "USER NAME : "+"<span onmouseover=document.getElementById('user').disabled=false; onmouseout=document.getElementById('user').disabled=true;><input disabled type='input' id='user' value='user' onmousemove='savename()'></span>"+"<br>";
+    txt += "PS4 FTP IP : "+"<span onmouseover=document.getElementById('myip').disabled=false; onmouseout=document.getElementById('myip').disabled=true;><input disabled type='myip' id='myip' value='0.0.0.0:1337' onmousemove='saveip()'></span>"+"<br><br>";
+	if (UA > "5.99" && !isNaN(UA)) {txt += "PSVR Spoof Enabled : " + "<span style='color:lime'> true </span>" + "<br>";} else if(isNaN(UA)){ txt += "PSVR Spoof Enabled : " + "<span style='color:red'>n/a</span>" +"<br>";}else {txt += "PSVR Spoof Enabled : " + "<span style='color:red'> false </span>" + "<br>";}txt += "Mira Kernel Logging : " + "<span style='color:red'> n/a </span>" + "<br>";
+	if (truefw == "spoofed" && !isNaN(UA)) { txt += "Official Firmware : " + "<span style='color:red'>Reboot Console</span>" +"<br>";} else if(isNaN(UA)){ txt += "Official Firmware : " + "<span style='color:red'>n/a</span>" +"<br>";}else { txt += "Official  Firmware : " + "<span style='color:lime'>v" + truefw + "</span>" + "<br>";}
+	if (navigator.onLine == false) { txt += "Lan/WiFi Enabled : " + "<span style='color:red'> false </span>" + "<br>";} else { txt += "Lan/WiFi Enabled : " + "<span style='color:lime'> true </span>" + "<br>";}
+	if (navigator.cookieEnabled === false) { txt += "Cookie Tracking : " + "<span style='color:red'> false </span>" + "<br>";} else { txt += "Cookie Tracking : " + "<span style='color:lime'> true </span>" + "<br>";}
+	if (cachedxp === "false") { txt += "Host Cached : " + "<span style='color:red'>" + cachedxp + "</span>" + "<br><br>";} else { txt += "Host Cached : " + "<span style='color:lime'>" + cachedxp + "</span>" + "<br><br>";}
+	document.title = xpver;
+	document.body.style.backgroundImage = "url('wallpaper.jpg')";
+	document.body.style.backgroundSize = "cover";
+	document.getElementById("infoz").innerHTML = txt;
+	document.getElementById("user").value = localStorage.getItem("username");
+	document.getElementById("myip").value = localStorage.getItem("userip");	
+	
+// DETECT TRUEFW & CURRENT "FW" VIA USERAGENT & COMPARE
+var fw = document.getElementById('ident');
+	reportedfw = UA;
+	truefw = localStorage.truefirm;
+	if (truefw == reportedfw){
+	fw.style.color = "white";
+	fw.innerHTML = ("FW v"+truefw+" DETECTED");
+	} else {
+	truefw = localStorage.truefirm;
+	fw.style.color = "white";
+	fw.innerHTML = ("<span style='color:lime'>&nbsp;OFFICIAL FW v"+truefw+"</span><br><span style='color:red'>SPOOFED FW v"+reportedfw+"</span>");
+	}
+	if(isNaN(reportedfw)){fw.innerHTML = ("<span style='color:red'>NO PS4 DETECTED</span>");}
+	if (truefw == "spoofed" && !isNaN(UA)){fw.innerHTML = ("<span style='color:red'>REBOOT CONSOLE</span>");
+	alert("Cache deleted after FW spoof\n\nIncorrect value identified\n\nPlease reboot console");
+	localStorage.removeItem("truefirm");
+	}
+
+// Show/Hide Info Pannel and Avatar	
+if (localStorage.getItem("ipanel") === null) {
+	document.getElementById("infoz").style.display = "block";
+	document.getElementById("avacontainer").style.display = "none";
+	} else if (localStorage.getItem("ipanel") === "on" ) {
+	document.getElementById("infoz").style.display = "block";
+	document.getElementById("avacontainer").style.display = "none";
+	} else {hideMe();}
+	if (localStorage.getItem("Debug") === "on") {
+	document.getElementsByTagName("UL")[0].getElementsByTagName("LI")[payloadcount].style.display = "block";
+	myNum = xmbVue.nColumns;
+	} else {
+	document.getElementsByTagName("UL")[0].getElementsByTagName("LI")[payloadcount].style.display = "none";
+	myNum = xmbVue.nColumns-1;
+	}
+
+// Auto Cache X-Project if not already cached
+if (cachedxp != "true" && sessionStorage.Credits == null && sessionStorage.Details == null && sessionStorage.Stats == null && sessionStorage.Changelog == null) {	
+	pop();
+	document.getElementById('Ttitle').innerHTML='INSTALLING X-PROJECT:';
+	document.getElementById('Tsubtitle').innerHTML='PLEASE WAIT!';
+	xmbVue.handleKey('x', 12); //move to cache column (12)	
+	window.open("payloads/xmbcache.html", "content");
+	}
+
+// After using Credits, Detais or stats > Go back to the relevant menu item.
+	if (sessionStorage.Credits != null) {xmbVue.handleKey('x', 14); sessionStorage.removeItem('Credits');}
+	if (sessionStorage.Details != null) {xmbVue.handleKey('y', 1); xmbVue.handleKey('x', 14); sessionStorage.removeItem('Details');}	
+	if (sessionStorage.Stats != null) {xmbVue.handleKey('y', 2); xmbVue.handleKey('x', 14); sessionStorage.removeItem('Stats');}
+	if (sessionStorage.Changelog != null) {xmbVue.handleKey('y', 3); xmbVue.handleKey('x', 14); sessionStorage.removeItem('Changelog');}		
+}// Populate function ends here!.
+
+// Save the inputted Username
+function savename() {
+	var sUser = document.getElementById("user").value;
+	localStorage.setItem("username", sUser);
+	document.getElementById("user").blur(); 
+}
+
+// Save the inputted IP address
+function saveip() {
+	var sIp = document.getElementById("myip").value;
+	localStorage.setItem("userip", sIp);
+	document.getElementById("myip").blur(); 
+}
+
+// Show/Hide Info panel
+function hideMe() {
+	var y = document.getElementById("infoz");
+	if (y.style.display === "none") {
+    y.style.display = "block";
+	localStorage.setItem("ipanel", "on");
+	document.getElementById("hide").innerHTML = "&nbsp;&nbsp;&nbsp;HIDE INFO";
+	document.getElementById("show").innerHTML = "";
+	document.getElementById("hide").style.fontSize = "16px";
+	document.getElementById("avacontainer").style.display = "none";
+	} else {
+	localStorage.setItem("ipanel", "off");
+  	document.getElementById("hide").innerHTML = xpver;
+	document.getElementById("hide").style.fontSize = "28px";
+	document.getElementById("show").innerHTML = "&nbsp;&nbsp;&nbsp;SHOW INFO";
+	document.getElementById("avacontainer").style.display = "block";
+    y.style.display = "none";
+	}
+}
+
+// Show X-Project Notification PopUp
+function pop() {
+	document.getElementById("trophy").play();
+	Tpopup.classList.remove('animation');
+	void Tpopup.offsetWidth;Tpopup.classList.add('animation');
+}
+
+// Show/Hide Debug Mode
+function DebugMode() {
+    var x = document.getElementsByTagName("UL")[0];
+    if (x.getElementsByTagName("LI")[payloadcount].style.display === "none") {
+	myNum = xmbVue.nColumns;
+    x.getElementsByTagName("LI")[payloadcount].style.display = "block";
+	localStorage.setItem("Debug", "on");
+	pop();
+	document.getElementById('Ttitle').innerHTML='NOTIFICATION:';
+	document.getElementById('Tsubtitle').innerHTML='DEBUG TOGGLED ON';
+    } else {
+	myNum = xmbVue.nColumns-1;
+    x.getElementsByTagName("LI")[payloadcount].style.display = "none";
+	localStorage.setItem("Debug", "off");
+	pop();
+	document.getElementById('Ttitle').innerHTML='NOTIFICATION:';
+	document.getElementById('Tsubtitle').innerHTML='DEBUG TOGGLED OFF';
+    }
+}
+
+// Simulate Key Press to fix Key-Combo
+function SimulateKeyPress() {
+    function PressKey(keyCode) {
+    var event = document.createEvent("HTMLEvents");
+    event.initEvent("keyup", true, false);
+    event.keyCode = keyCode;
+    document.dispatchEvent(event);
+    }
+    document.addEventListener("keyup", false);
+    PressKey(113); //Press Square Button
+}
+setTimeout(SimulateKeyPress, 1000);
+</script>
+<div id="ScrOverlay" class=cacheUPDbg><pre id="cacheUPDtxt" class=cacheUPD></pre></div>
+<div class="avacontainer" id="avacontainer"><canvas id="colorCanvas" class="colorCanvas" width="210" height="210"></canvas></div>
+<h3 class="infoz" id="infoz">X-PROJECT LOADING..</h3>
+<h5 class="hide" id="hide" onclick='hideMe()'>&nbsp;&nbsp;&nbsp;HIDE INFO</h5>
+<h5 class="hide" id="show" onclick='hideMe()'></h5>
+<h4 class="ident" id="ident">X-PROJECT LOADING..</h4>
+</body>
+</html>

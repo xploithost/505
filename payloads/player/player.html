@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MP4 PLAYER</title>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<style>
+h1 {
+color:white;
+}
+body {
+    background-color: gray;
+}
+div {
+color:white;
+}
+.form {
+colour:white;
+}
+.sbutton {
+    background-color: deepskyblue;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 1px 1px;
+    cursor: pointer;
+}
+.sbutton:hover {
+    background-color: white;
+    color: black;
+}
+.button {
+    background-color: deepskyblue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: white;
+    color: black;
+}
+</style>
+<script>
+//var mp4folder = "../../media/";
+setTint = localStorage.xmbcolor;
+var fileName = "../../media/movielist.txt";
+var txtFile = new XMLHttpRequest();
+txtFile.open("GET",fileName,false);
+txtFile.send();
+var txtDoc = txtFile.responseText;
+var lines = txtDoc.split("\r\n");
+</script>
+</head>
+<body id="body">
+<center>
+<h1><div class="title">MP4 MEDIA PLAYER</div></h1>
+<div id="droplist">
+<select id="Media" onchange="vidsrc()">
+	<option selected="selected">SELECT MOVIE</option>
+</select>
+</div><br>
+<video id="player" width="720" poster="player.jpg" preload="metadata" onclick="playPause();" cursor="none">
+<source id="vid_src" src="" type="video/mp4">
+<track id="track" label="English" kind="subtitles" srclang="en" default>
+   <!-- http://www.ezshare.card/xproject/media/movie1.mp4 = absolute dir -->
+</video> 
+<br>
+<button class="sbutton" onclick="restart()">Restart</button>
+<button class="sbutton" onclick="back30()"><30s</button>
+<button id="playpause" class="sbutton" onclick="playPause()">&#9654;/||</button> 
+<button class="sbutton" onclick="stop()">&#9632;</button> 
+<button class="sbutton" onclick="skip30()">>30s</button>
+<button class="sbutton" onclick="normRez()">720</button>
+<button class="sbutton" onclick="bigRez()">1080</button>
+<button class="sbutton" onclick="full()">FULL</button>
+<button class="sbutton" onclick="night()">DARK</button>
+<button id="mute" class="sbutton" onclick="mute()">MUTE</button>
+<button class="sbutton" onclick="info()">INFO</button>
+<br>
+<div id="run">SELECT A MOVIE</div>
+<a href="javascript:window.open('','_self').close();" class="button" onmouseup="parent.location.reload();">BACK TO XMB</a>
+<script>
+document.getElementsByClassName("title")[0].style.color = setTint;
+document.getElementsByClassName("button")[0].style.backgroundColor = setTint;
+for(var p = 0; p < 12; p++){
+document.getElementsByClassName("sbutton")[p].style.backgroundColor = setTint;
+}
+var x = document.getElementById("player");
+var minutes = parseInt(x.duration / 60, 10);
+var seconds = parseInt(x.duration % 60);
+var runningm = parseInt(x.currentTime / 60, 10);
+var runnings = parseInt(x.currentTime % 60);
+function vidsrc() {
+var m = document.getElementById("Media").value;
+x.src = "../../media/" + m;
+var vtt = document.getElementById("track");
+vtt.src = "../../media/" + m + ".vtt";
+x.currentTime = 0
+x.pause();
+x.poster = "ready.jpg";
+alert(m + " is ready to play");
+document.getElementById("playpause").style.color = "red";
+}
+var t; for (t = 0; t < lines.length; t++) {
+var option = document.createElement("option");
+option.text = lines[t]; option.value = lines[t];
+var select = document.getElementById("Media");
+select.appendChild(option);
+}
+document.getElementById("media").appendChild(node);
+//if (document.getElementById("L1").text === "Loading.."){
+//alert("test");
+//}
+function full() {x.webkitRequestFullscreen();}
+function restart() {
+  x.currentTime = 0
+  x.play();
+}
+function skip30() {x.currentTime += 30}
+function back30() {x.currentTime -= 30}
+function stop() {
+var m = document.getElementById("Media").value;
+x.src = "../../media/" + m;
+x.currentTime = 0
+x.pause();
+x.poster = "stopped.jpg";
+}
+function mute() {
+	if (x.volume === 1.0) {
+		x.volume = 0.0;
+		document.getElementById("mute").style.color = "red";
+		document.getElementById("mute").onmouseenter = function() {this.style.color = "red";}
+		document.getElementById("mute").onmouseleave = function() {this.style.color = "red";}
+	} else {
+		x.volume = 1.0;
+		document.getElementById("mute").onmouseenter = function() {this.style.color = "black";}
+		document.getElementById("mute").onmouseleave = function() {this.style.color = "white";}
+	}
+}
+function playPause() { 
+    if (x.paused) {
+        x.play(); 
+		document.getElementById("playpause").style.color = "white";
+		document.getElementById("playpause").onmouseenter = function() {this.style.color = "black";}
+		document.getElementById("playpause").onmouseleave = function() {this.style.color = "white";}
+		
+    } else {
+        x.pause(); 
+		document.getElementById("playpause").style.color = "red";
+		document.getElementById("playpause").onmouseenter = function() {this.style.color = "red";}
+		document.getElementById("playpause").onmouseleave = function() {this.style.color = "red";}
+		}
+} 
+function bigRez() {x.width = 1080;} 
+function normRez() {x.width = 720;} 
+function night() {
+	if (document.body.style.backgroundColor === "black") {
+		document.body.style.backgroundColor = "gray";
+	} else {
+		document.body.style.backgroundColor = "black";
+	}
+}
+function info() {alert("Built by DEFAULTDNB 2018/2019");} 
+</script>
+</center>
+</body>
+</html>

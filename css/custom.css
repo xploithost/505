@@ -1,0 +1,41 @@
+/*#avatar {
+	height: 210px;
+	width: 210px;
+}*/
+/* Clock line colour */
+.clock {
+  color: white;
+}
+/* XMB title colour */
+#xmb label {
+  color: white;
+}
+/* XMB & payload icons colour */
+.cell.active {
+  color: deepskyblue;
+}
+/* Payload title line colour */
+.titles.active {
+  color: deepskyblue;
+}
+/* Payload description line colour */
+.desc {
+  color: white;
+}
+/* Payload version line colour */
+.subs {
+  color: grey;
+}
+/* Info read out line colour */
+.infoz {
+  color: grey;
+}
+/* Username colour */
+#user {
+	color: deepskyblue;
+}
+/* IP address colour */
+#myip {
+	color: deepskyblue;
+}
+
