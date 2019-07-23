@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="#000000">
+<style>
+body {
+background-color:black;
+color:deepskyblue;
+}
+.button {
+position:fixed;bottom:0px;right:0px;
+background-color:deepskyblue;
+border:none;
+color:black;
+padding:15px 32px;
+text-align:center;
+text-decoration:none;
+display:inline-block;
+font-size:32px;
+margin:4px 2px;
+cursor:pointer;
+}
+.button:hover {
+color:white;
+}
+.button2 {
+background-color: grey;
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 15px;
+margin: 4px 2px;
+cursor: pointer;
+}
+.button2:hover {
+background-color: red;
+color: white;
+}
+.vtxhenresult {
+color: white;
+font-size: 25px;
+}
+.vtxdumpresult {
+color: white;
+font-size: 25px;
+}
+.vtxftpresult {
+color: white;
+font-size: 25px;
+}
+</style>
+<div id=stats>
+<center><br>
+<font size ="7" color="white">PAYLOAD STATS V0.1 POC</font>
+<br><br>
+<font size ="6">VTX HEN 1.7:</font>
+<div class="vtxhenresult" id="vtxhenresult"></div>
+<br><br>
+<font size ="6">VTX DUMPER 1.8:</font>
+<div class="vtxdumpresult" id="vtxdumpresult"></div>
+<br><br>
+<font size ="6">VTX FTP 1.3:</font>
+<div class="vtxftpresult" id="vtxftpresult"></div>
+<br>
+<p><font size ="5" color="grey">Made by DefaultDNB 2018</font></p>
+<a href="javascript:back2Menu();" class="button">BACK TO MENU</a>
+<br><br>
+<button class="button2" id="clear" onclick="localStorage.clear(); document.getElementById('vtxhenresult').innerHTML = 'Stats have been erased'; document.getElementById('vtxdumpresult').innerHTML = 'Stats have been erased'; document.getElementById('vtxftpresult').innerHTML = 'Stats have been erased';">ERASE STATS</button>
+<p><font size ="5" color="firebrick">[WARNING]: CLEARING WEBSITE DATA ALSO ERASES STATS</font></p>
+</center>
+</div>
+<script>
+setTint = localStorage.xmbcolor;
+document.getElementById("stats").style.color = setTint;
+document.getElementsByClassName("button")[0].style.backgroundColor = setTint;
+var i = setInterval(function() {
+    window.scrollBy(0, 1);
+	}, 50);
+if(typeof(Storage) !== "undefined") {
+        if (localStorage.vtxhencount) {
+		localStorage.vtxhencount = Number(localStorage.vtxhencount);
+        } else {
+		}
+		document.getElementById("vtxhenresult").innerHTML = "Payload has been loaded " + localStorage.vtxhencount + " times in total.";
+} 
+if (document.getElementById("vtxhenresult").innerHTML.includes("undefined")){
+    document.getElementById("vtxhenresult").innerHTML = "Payload has never been loaded.";
+	} else if (document.getElementById("vtxhenresult").innerHTML.includes("1")){
+	document.getElementById("vtxhenresult").innerHTML = "Payload has been loaded once in total.";
+	} else if (document.getElementById("vtxhenresult").innerHTML.includes("2")){
+	document.getElementById("vtxhenresult").innerHTML = "Payload has been loaded twice in total.";
+	}
+if(typeof(Storage) !== "undefined") {
+        if (localStorage.vtxdumpcount) {
+		localStorage.vtxdumpcount = Number(localStorage.vtxdumpcount);
+        } else {
+		}
+		document.getElementById("vtxdumpresult").innerHTML = "Payload has been loaded " + localStorage.vtxdumpcount + " times in total.";
+} 
+if (document.getElementById("vtxdumpresult").innerHTML.includes("undefined")){
+    document.getElementById("vtxdumpresult").innerHTML = "Payload has never been loaded.";
+	} else if (document.getElementById("vtxdumpresult").innerHTML.includes("1")){
+	document.getElementById("vtxdumpresult").innerHTML = "Payload has been loaded once in total.";
+	} else if (document.getElementById("vtxdumpresult").innerHTML.includes("2")){
+	document.getElementById("vtxdumpresult").innerHTML = "Payload has been loaded twice in total.";
+	}
+if(typeof(Storage) !== "undefined") {
+        if (localStorage.vtxftpcount) {
+		localStorage.vtxftpcount = Number(localStorage.vtxftpcount);
+        } else {
+		}
+		document.getElementById("vtxftpresult").innerHTML = "Payload has been loaded " + localStorage.vtxftpcount + " times in total.";
+} 
+if (document.getElementById("vtxftpresult").innerHTML.includes("undefined")){
+    document.getElementById("vtxftpresult").innerHTML = "Payload has never been loaded.";
+	} else if (document.getElementById("vtxftpresult").innerHTML.includes("1")){
+	document.getElementById("vtxftpresult").innerHTML = "Payload has been loaded once in total.";
+	} else if (document.getElementById("vtxftpresult").innerHTML.includes("2")){
+	document.getElementById("vtxftpresult").innerHTML = "Payload has been loaded twice in total.";
+	}
+function back2Menu (){
+parent.location.reload(true); 
+}
+</script>
+</body>
+</html>
